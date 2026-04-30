@@ -25,7 +25,8 @@ function ad5592r_CurveTracer(uri)
 
     fprintf('Connecting to %s ...\n', uri);
 
-    dev = adi.AD5592r.Rx('uri', uri);
+    dev = adi.AD5592r.Rx;
+    dev.uri = uri;
     dev.setup();
     cleanup = onCleanup(@() dev.release());
 
